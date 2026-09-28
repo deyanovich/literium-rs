@@ -1,0 +1,22 @@
+[package]
+name = "literium-core"
+version = "0.1.0"
+edition = "2021"
+description = "Literium's identity layer: content extraction, segmentation, and derivation of the content-addressed atom/grex objects (SPEC §3-§6)."
+license = "MIT OR Apache-2.0"
+repository = "https://gitlab.com/literium/literium-rs"
+homepage = "https://literium.org"
+readme = "README.md"
+keywords = ["text", "literary", "sentence", "unicode", "segmentation"]
+categories = ["text-processing"]
+
+[dependencies]
+sha2 = "0.10"
+hex = "0.4"
+# SPEC §4 pins segmentation to Unicode 16.0.0. This crate version
+# carries UAX-29 sentence-boundary property tables at exactly
+# 16.0.0 (UNICODE_VERSION == (16, 0, 0)); the exact-version pin is
+# load-bearing — a bump changes every atom hash and is a
+# segmentation-version migration, not a routine upgrade.
+# HISTORY §2 "Implementation language: Rust core, Perl oracle".
+unicode-segmentation = "=1.12.0"

@@ -1,0 +1,10 @@
+# Virtual workspace manifest. The two crates:
+#
+# - literium-core — the identity layer (extraction, segmentation,
+#   derivation; SPEC §3-§6), I/O-free, carries the Unicode pin.
+# - literium — storage, versions, histories, and the `lit` CLI;
+#   depends on literium-core and re-exports it.
+
+[workspace]
+resolver = "2"
+members = ["literium", "literium-core"]
