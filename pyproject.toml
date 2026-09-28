@@ -1,0 +1,38 @@
+# PyPI packaging for the `lit` command-line tool (dist: literium).
+# maturin bin bindings: the wheel carries the compiled `lit` binary
+# of the literium crate in its scripts dir — no Python module, no
+# ABI coupling (wheels tag as py3-none-<platform>). The Rust
+# library surface is the crates.io `literium` / `literium-core`
+# crates; Python bindings for the library are not part of this dist.
+
+[build-system]
+requires = ["maturin>=1.7,<2.0"]
+build-backend = "maturin"
+
+[project]
+name = "literium"
+description = "The lit command-line tool: version control for literary texts, where the atom of change is the sentence (prose) or the line (poetry), not the line of code"
+readme = "README.md"
+license = "MIT OR Apache-2.0"
+license-files = ["LICENSE-MIT", "LICENSE-APACHE"]
+authors = [{ name = "Bojan Đuričković" }]
+requires-python = ">=3.9"
+keywords = ["version-control", "text", "literary", "sentence", "unicode", "cli"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "Intended Audience :: Education",
+  "Programming Language :: Rust",
+  "Topic :: Software Development :: Version Control",
+  "Topic :: Text Processing",
+]
+dynamic = ["version"]
+
+[project.urls]
+Homepage = "https://literium.org"
+Repository = "https://gitlab.com/literium/literium-rs"
+
+[tool.maturin]
+bindings = "bin"
+manifest-path = "literium/Cargo.toml"
+strip = true

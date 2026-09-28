@@ -24,6 +24,20 @@ The
 `ObjectStore` trait is the seam where syntheca cellae attach at
 the litorium/v2 remoting layer.
 
+## Install
+
+The `lit` command-line tool ships from two registries, both built
+from this repository:
+
+```
+cargo install literium      # crates.io: the literium crate's lit binary
+pip install literium        # PyPI: the same binary as a platform wheel
+```
+
+The PyPI distribution is the CLI only (`pyproject.toml`, maturin
+`bin` bindings); it carries no Python module. Library consumers
+use the `literium` and `literium-core` crates directly.
+
 ## Workspace layout
 
 A two-crate Cargo workspace:
